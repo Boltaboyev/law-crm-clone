@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law School &middot; Reception</title>
+    <!-- style -->
+    <link rel="stylesheet" href="../css/output.css">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="../assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="YG" />
+    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+
+    <!-- boxicon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- notify -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+
+</head>
+
+<body>
+
+
+    <main class="flex justify-between">
+        <!-- sidebar -->
+        <div class="bg-primary flex-1 h-[100vh] sticky top-0 p-[20px] flex flex-col justify-between items-center">
+            <div class="flex justify-center items-center w-full">
+                <a href="#!">
+                    <img src="../assets/img/header-logo/w-logo.png" alt="">
+                </a>
+            </div>
+
+            <div class="flex flex-col gap-[10px] w-full">
+
+                <button class="sectionBtn w-full btn-primary">Daily attendance<i class="fa-solid fa-list-check"></i>
+                </button>
+
+                <hr class="opacity-10">
+
+                <button class="sectionBtn w-full btn-primary">Add teacher <i class="fa-solid fa-user-tie"></i></button>
+
+                <button class="sectionBtn w-full btn-primary">Add student <i
+                        class="fa-solid fa-user-graduate"></i></button>
+
+                <hr class="opacity-10">
+
+                <button class="sectionBtn w-full btn-primary">Payment Control <i
+                        class="fa-solid fa-hand-holding-dollar"></i></button>
+
+                <button class="sectionBtn w-full btn-primary">Total payment <i
+                        class="fa-solid fa-sack-dollar"></i></button>
+
+                <hr class="opacity-10">
+
+                <button class="sectionBtn w-full btn-primary">Edit teachers <i
+                        class="fa-solid fa-pen-to-square"></i></button>
+
+                <button class="sectionBtn w-full btn-primary">Edit students <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+
+            </div>
+
+            <button id="logoutBtn" class="btn-primary w-full !bg-white border border-red-500 !text-red-500">Logout <i
+                    class="fa-solid fa-person-running"></i></button>
+        </div>
+        <!-- sidebar end -->
+
+        <div class="bg-white flex-[5] ">
+            <!-- top bar -->
+            <div class="w-full h-[50px] bg-primary sticky top-0 flex justify-between items-center px-[20px] z-[999]">
+                <i id="selfEditModalOpenBtn" class='bx bx-cog cursor-pointer text-white text-[20px]'></i>
+                <h1 class="text-white">Salom <span id="receptionName"></span> &#128075;</h1>
+            </div>
+
+            <!-- center append div -->
+            <section class="p-[20px]">
+
+                <!-- Daily attendance ------------------------------------------------------->
+                <div id="dailyAttendance"
+                    class="section hidden flex-col rounded-lg border border-primary overflow-hidden">
+                    <!-- top -->
+                    <div class="w-full bg-primary p-[15px] flex justify-between items-center gap-[20px]">
+                        <p class="text-white">Davomat</p>
+                        <div class="flex justify-center items-center gap-[10px]">
+                            <span class="h-[18px] w-[18px] rounded-full bg-red-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-orange-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-green-500"></span>
+                        </div>
+                    </div>
+
+
+                    <!-- student table -->
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50  ">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    F.I.SH
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Telefon Raqam
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Status
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="appendStudentsAttendance" class="text-primary">
+                            <!-- daily students attendance appear here -->
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+                <!-- add teacher ------------------------------------------------------------>
+                <div id="addTeacher"
+                    class="section hidden flex-col gap-[20px] rounded-lg border border-primary overflow-hidden">
+                    <div class="w-full bg-primary p-[15px] flex justify-between items-center gap-[20px]">
+                        <p class="text-white">Add Teacher</p>
+                        <div class="flex justify-center items-center gap-[10px]">
+                            <span class="h-[18px] w-[18px] rounded-full bg-red-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-orange-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-green-500"></span>
+                        </div>
+                    </div>
+
+                    <!-- add teacher form -->
+                    <div class="p-[15px]">
+                        <form id="addTeacherForm" class="grid grid-cols-2 gap-[30px] text-primary">
+
+                            <!-- name -->
+                            <input required id="addTeacherName" type="text" placeholder="Ism"
+                                class="uppercaseInput p-[10px] rounded-md border outline-none">
+
+                            <!-- surname -->
+                            <input required id="addTeacherSurname" type="text" placeholder="Familiya"
+                                class="uppercaseInput p-[10px] rounded-md border outline-none">
+
+                            <!-- phone number -->
+                            <input required id="addTeacherPhone" type="text" placeholder="Telefon raqam"
+                                class="receptionPhoneNum p-[10px] rounded-md border outline-none">
+
+                            <!-- role -->
+                            <select required id="addTeacherRole" class="p-[10px] rounded-md border outline-none">
+                                <option value="" class="">- Kim bo'lib ishlashi -</option>
+                                <option value="teacher">Asosiy o'qituvchi</option>
+                                <option value="support">Yordamchi o'qituvchi</option>
+                            </select>
+
+                            <!-- secret word -->
+                            <input required id="addTeacherUsername" type="text" placeholder="Maxfiy so'z"
+                                class="p-[10px] rounded-md border outline-none">
+
+                            <!-- parol -->
+                            <div required
+                                class="w-full flex justify-between items-center relative rounded-md border outline-none overflow-hidden">
+                                <input id="addTeacherPassword" type="password" placeholder="Parol"
+                                    class="passwordInput w-[90%] pr-5 p-[10px]">
+                                <i
+                                    class="showPassEye fa-regular fa-eye cursor-pointer p-[10px] w-[10%] !flex !justify-center !items-center !text-center"></i>
+                            </div>
+
+                            <button type="submit" class="col-span-2 bg-primary text-white p-[10px] rounded-md">Add
+                                teacher</button>
+
+                        </form>
+                    </div>
+                </div>
+
+                <!-- add student ------------------------------------------------------------>
+                <div required id="addStudent"
+                    class="section hidden flex-col gap-[20px] rounded-lg border border-primary overflow-hidden">
+                    <div class="w-full bg-primary p-[15px] flex justify-between items-center gap-[20px]">
+                        <p class="text-white">Add Student</p>
+                        <div class="flex justify-center items-center gap-[10px]">
+                            <span class="h-[18px] w-[18px] rounded-full bg-red-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-orange-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-green-500"></span>
+                        </div>
+                    </div>
+
+                    <!-- add student form -->
+                    <div class="p-[15px] text-primary">
+                        <form id="addStudentForm" class="grid grid-cols-2 gap-[30px]">
+
+                            <!-- name -->
+                            <input required id="addStudentName" type="text" placeholder="Ism"
+                                class="uppercaseInput p-[10px] rounded-md border outline-none">
+
+                            <!-- surname -->
+                            <input required id="addStudentSurname" type="text" placeholder="Familiya"
+                                class="uppercaseInput p-[10px] rounded-md border outline-none">
+
+                            <!-- phone number -->
+                            <input required id="addStudentPhone" type="text" placeholder="Telefon raqam"
+                                class="receptionPhoneNum p-[10px] rounded-md border outline-none">
+
+                            <!-- parents phone num -->
+                            <input required id="addStudentParentPhone" type="text"
+                                placeholder="Ota-onasining telefon raqami"
+                                class="receptionPhoneNum p-[10px] rounded-md border outline-none">
+
+                            <!-- secret word -->
+                            <input required id="addStudentUsername" type="text" placeholder="Maxfiy so'z"
+                                class="p-[10px] rounded-md border outline-none">
+
+                            <!-- parol -->
+                            <div
+                                class="w-full flex justify-between items-center relative rounded-md border outline-none overflow-hidden">
+                                <input required id="addStudentPassword" type="password" placeholder="Parol"
+                                    class="passwordInput w-[90%] pr-5 p-[10px]">
+                                <i
+                                    class="showPassEye fa-regular fa-eye cursor-pointer p-[10px] w-[10%] !flex !justify-center !items-center !text-center"></i>
+                            </div>
+
+                            <button type="submit" class="col-span-2 bg-primary text-white p-[10px] rounded-md">Add
+                                student</button>
+
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Payment Control -------------------------------------------------------->
+                <div id="paymentControl"
+                    class="section hidden flex-col rounded-lg border border-primary overflow-hidden">
+                    <!-- top -->
+                    <div class="w-full bg-primary p-[15px] flex justify-between items-center gap-[20px]">
+                        <p class="text-white">Oylik to'lovlarni boshqarish</p>
+                        <div class="flex justify-center items-center gap-[10px]">
+                            <span class="h-[18px] w-[18px] rounded-full bg-red-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-orange-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-green-500"></span>
+                        </div>
+                    </div>
+
+                    <div id="detailed-pricing" class="w-full overflow-x-auto">
+                        <div class="overflow-hidden min-w-max">
+                            <div
+                                class="grid grid-cols-3 p-4 text-sm font-medium text-gray-900 bg-gray-100 border-t border-b border-gray-200 gap-x-16">
+                                <div>F.I.SH</div>
+                                <div class="flex flex-col items-center justify-center">
+                                    <p>To'langanlik holati</p>
+                                    <small>(<span id="currentMonthName"></span>)</small>
+                                </div>
+                                <div class="flex justify-end">To'lovni boshqarish</div>
+                            </div>
+
+                            <div id="paymentControlUsersDiv" class="flex flex-col">
+                                <!-- payment control appear here -->
+                            </div>
+
+                            <!-- paymentConfirmModal -->
+                            <div id="paymentConfirmModal"
+                                class="hidden h-[100vh] w-full bg-[#000000a5] backdrop-blur-[4px] fixed top-0 left-0 z-[999] justify-center items-center">
+                                <div class="p-[20px] rounded-lg bg-white shadow-md flex flex-col gap-[20px]">
+                                    <p id="modalTextContent">O'quvchi oylik to'lovni to'ladimi?</p>
+
+                                    <div class="grid grid-cols-2 gap-[20px] w-full">
+                                        <button id="paymentYesBtn"
+                                            class="p-[5px] rounded-md bg-primary text-green-500 text-[25px]">
+                                            <i class="bx bx-check"></i>
+                                        </button>
+
+                                        <button id="paymentNoBtn"
+                                            class="p-[5px] rounded-md bg-primary text-red-500 text-[25px]">
+                                            <i class="bx bx-x"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <!-- total sum ------------------------------------------------------------->
+                <div id="totalSum" class="section hidden flex-col rounded-lg border border-primary overflow-hidden">
+
+                    <!-- top -->
+                    <div class="w-full bg-primary p-[15px] flex justify-between items-center gap-[20px]">
+                        <div class="text-white flex flex-col gap-[5px]">
+                            <p>Jami oylik tushumlarni ko'rish</p>
+                            <p class="opacity-70 font-[300] flex justify-start items-center gap-[5px] text-[12px]"><i
+                                    class="bx bx-info-circle"></i>Oylik to'lov: <span id="monthlyPaymentPrice">000
+                                    000</span></p>
+                        </div>
+                        <div class="flex justify-center items-center gap-[10px]">
+                            <span class="h-[18px] w-[18px] rounded-full bg-red-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-orange-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-green-500"></span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-[20px] text-center py-[20px]">
+
+                        <!-- jami -->
+                        <div class="flex flex-col gap-[20px] text-blue-500">
+                            <p class="text-gray-400">Jami yi'gilishi kerak bo'lgan pul</p>
+                            <h1 id="totalPaymentCourse" class="text-[20px] font-[600]">0</h1>
+                        </div>
+
+                        <!-- yigilgan sum -->
+                        <div class="flex flex-col gap-[20px] text-green-500 border-l border-r border-gray-300">
+                            <p class="text-gray-400">Yig'ilgan pul</p>
+                            <h1 id="collectedPaymentCourse" class="text-[20px] font-[600]">0</h1>
+                        </div>
+
+                        <!-- qolgan sum -->
+                        <div class="flex flex-col gap-[20px] text-red-500">
+                            <p class="text-gray-400">Qolgan pul</p>
+                            <h1 id="restPaymentCourse" class="text-[20px] font-[600]">0</h1>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- edit teachers --------------------------------------------------------->
+                <div id="editTeacher" class="section hidden flex-col rounded-lg border border-primary overflow-hidden">
+                    <!-- top -->
+                    <div class="w-full bg-primary p-[15px] flex justify-between items-center gap-[20px]">
+                        <p class="text-white">O'qituvchilarni tahrirlash</p>
+                        <div class="flex justify-center items-center gap-[10px]">
+                            <span class="h-[18px] w-[18px] rounded-full bg-red-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-orange-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-green-500"></span>
+                        </div>
+                    </div>
+
+
+                    <div id="editTeacherAppendDiv" class="grid p-[15px] grid-cols-3 gap-[30px]">
+                        <!-- teachers cards append here -->
+                    </div>
+
+                </div>
+
+                <!-- edit teacher modal -->
+                <div id="editTeacherModal"
+                    class="hidden h-[100vh] w-full bg-[#000000cd] backdrop-blur-[5px] fixed top-0 left-0 z-[999] justify-center items-center">
+
+                    <div class="p-[15px] rounded-md bg-white w-[550px] relative">
+                        <span id="closeEditTeacherModal"
+                            class="bg-red-500 flex justify-center items-center h-[35px] w-[35px] rounded-full text-white cursor-pointer absolute top-[-15px] right-[-20px]">
+                            <i class="bx bx-x text-[20px]"></i>
+                        </span>
+
+                        <form id="editTeacherModalForm" class="grid grid-cols-2 gap-[20px] text-primary">
+                            <label for="editTeacherModalFormName">
+                                <p class="text-[12px] opacity-70">
+                                    Ism
+                                </p>
+                                <input id="editTeacherModalFormName" class="w-full p-[10px] rounded-md border "
+                                    type="text" required>
+                            </label>
+
+                            <label for="editTeacherModalFormSurname">
+                                <p class="text-[12px] opacity-70">
+                                    Familiya
+                                </p>
+                                <input id="editTeacherModalFormSurname" class="w-full p-[10px] rounded-md border "
+                                    type="text" required>
+                            </label>
+
+                            <label for="editTeacherModalFormUsername">
+                                <p class="text-[12px] opacity-70">
+                                    Maxfiy so'z
+                                </p>
+                                <input id="editTeacherModalFormUsername" class="w-full p-[10px] rounded-md border "
+                                    type="text" required>
+                            </label>
+
+                            <label for="editTeacherModalFormPassword">
+                                <p class="text-[12px] opacity-70">
+                                    Parol
+                                </p>
+                                <input id="editTeacherModalFormPassword" class="w-full p-[10px] rounded-md border "
+                                    type="text" required>
+                            </label>
+
+                            <label for="editTeacherModalFormPhone">
+                                <p class="text-[12px] opacity-70">
+                                    Telefon raqam
+                                </p>
+                                <input id="editTeacherModalFormPhone"
+                                    class="receptionPhoneNum w-full p-[10px] rounded-md border " type="text" required>
+                            </label>
+
+                            <label for="editTeacherModalFormRole">
+                                <p class="text-[12px] opacity-70">
+                                    Kasbi
+                                </p>
+                                <select id="editTeacherModalFormRole"
+                                    class="w-full p-[10px] rounded-md border outline-none cursor-pointer" type="text"
+                                    required>
+                                    <option value="teacher">Asosiy o'qituvchi</option>
+                                    <option value="support">Yordamchi o'qituvchi</option>
+                                </select>
+                            </label>
+
+                            <button type="submit"
+                                class="col-span-2 w-full bg-primary p-[10px] rounded-md text-white active:scale-[.98] opacity-90 hover:opacity-100">
+                                Saqlash
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- confirm delete teacher -->
+                <div id="deletingUserModal"
+                    class="hidden h-[100vh] w-full bg-[#000000a5] backdrop-blur-[4px] fixed top-0 left-0 z-[999] justify-center items-center">
+                    <div class="p-[20px] rounded-lg bg-white shadow-md flex flex-col gap-[20px]">
+                        <p id="modalTextContent">(<span id="deletingUserName" class="text-red-400"></span>)ni o'chirib
+                            tashlashga aminmisiz ?
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-[20px] w-full">
+                            <button id="yesBtn" class="p-[5px] rounded-md bg-primary text-green-500 text-[25px]">
+                                <i class="bx bx-check"></i>
+                            </button>
+
+                            <button id="noBtn" class="p-[5px] rounded-md bg-primary text-red-500 text-[25px]">
+                                <i class="bx bx-x"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- edit students --------------------------------------------------------->
+                <div id="editStudent" class="section hidden flex-col rounded-lg border border-primary overflow-hidden">
+                    <!-- top -->
+                    <div class="w-full bg-primary p-[15px] flex justify-between items-center gap-[20px]">
+                        <p class="text-white">O'quvchilarni tahrirlash</p>
+                        <div class="flex justify-center items-center gap-[10px]">
+                            <span class="h-[18px] w-[18px] rounded-full bg-red-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-orange-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-green-500"></span>
+                        </div>
+                    </div>
+
+
+                    <div id="editStudentAppendDiv" class="grid p-[15px] grid-cols-3 gap-[40px]">
+                        <!-- students cards append here -->
+                    </div>
+
+                </div>
+
+                <!-- edit student modal -->
+                <div id="editStudentModal"
+                    class="hidden h-[100vh] w-full bg-[#000000cd] backdrop-blur-[5px] fixed top-0 left-0 z-[999] justify-center items-center">
+
+                    <div class="p-[15px] rounded-md bg-white w-[550px] relative">
+                        <span id="closeEditStudentModal"
+                            class="bg-red-500 flex justify-center items-center h-[35px] w-[35px] rounded-full text-white cursor-pointer absolute top-[-15px] right-[-20px]">
+                            <i class="bx bx-x text-[20px]"></i>
+                        </span>
+
+                        <form id="editStudentModalForm" class="grid grid-cols-2 gap-[20px] text-primary">
+                            <label for="editStudentModalFormName">
+                                <p class="text-[12px] opacity-70">
+                                    Ism
+                                </p>
+                                <input id="editStudentModalFormName" class="w-full p-[10px] rounded-md border "
+                                    type="text" required>
+                            </label>
+
+                            <label for="editStudentModalFormSurname">
+                                <p class="text-[12px] opacity-70">
+                                    Familiya
+                                </p>
+                                <input id="editStudentModalFormSurname" class="w-full p-[10px] rounded-md border "
+                                    type="text" required>
+                            </label>
+
+                            <label for="editStudentModalFormUsername">
+                                <p class="text-[12px] opacity-70">
+                                    Maxfiy so'z
+                                </p>
+                                <input id="editStudentModalFormUsername" class="w-full p-[10px] rounded-md border "
+                                    type="text" required>
+                            </label>
+
+                            <label for="editStudentModalFormPassword">
+                                <p class="text-[12px] opacity-70">
+                                    Parol
+                                </p>
+                                <input id="editStudentModalFormPassword" class="w-full p-[10px] rounded-md border "
+                                    type="text" required>
+                            </label>
+
+                            <label for="editStudentModalFormPhone">
+                                <p class="text-[12px] opacity-70">
+                                    Telefon raqam
+                                </p>
+                                <input id="editStudentModalFormPhone"
+                                    class="receptionPhoneNum w-full p-[10px] rounded-md border " type="text" required>
+                            </label>
+
+                            <label for="editStudentModalFormParentPhone">
+                                <p class="text-[12px] opacity-70">
+                                    Ota-onasininng raqami
+                                </p>
+                                <input id="editStudentModalFormParentPhone"
+                                    class="receptionPhoneNum w-full p-[10px] rounded-md border " type="text" required>
+                            </label>
+
+                            <button type="submit"
+                                class="col-span-2 w-full bg-primary p-[10px] rounded-md text-white active:scale-[.98] opacity-90 hover:opacity-100">
+                                Saqlash
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- confirm delete student -->
+                <div id="deletingStudentModal"
+                    class="hidden h-[100vh] w-full bg-[#000000a5] backdrop-blur-[4px] fixed top-0 left-0 z-[999] justify-center items-center">
+                    <div class="p-[20px] rounded-lg bg-white shadow-md flex flex-col gap-[20px]">
+                        <p>(<span id="deletingStudentName" class="text-red-400"></span>)ni o'chirib
+                            tashlashga
+                            aminmisiz ?
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-[20px] w-full">
+                            <button id="studentYesBtn" class="p-[5px] rounded-md bg-primary text-green-500 text-[25px]">
+                                <i class="bx bx-check"></i>
+                            </button>
+
+                            <button id="studentNoBtn" class="p-[5px] rounded-md bg-primary text-red-500 text-[25px]">
+                                <i class="bx bx-x"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- toast -->
+                <p id="toast"
+                    class="fixed bottom-[-100%] z-[999999999] right-[20px] bg-green-500 text-white shadow-md p-[20px] rounded-xl text-center">
+                </p>
+
+            </section>
+
+        </div>
+
+        <!-- logout confirmation modal -->
+        <div id="logoutModal"
+            class="hidden h-[100vh] w-full bg-[#000000a5] backdrop-blur-[4px] fixed top-0 left-0 z-[999] justify-center items-center">
+            <div class="p-[20px] rounded-lg bg-white shadow-md flex flex-col gap-[20px]">
+                <p>Rostan ham hisobdan chiqmoqchimisiz !</p>
+
+                <div class="grid grid-cols-2 gap-[20px] w-full">
+                    <button id="yesLogout" class="p-[5px] rounded-md bg-primary text-green-500 text-[25px]">
+                        <i class="bx bx-check"></i>
+                    </button>
+
+                    <button id="noLogout" class="p-[5px] rounded-md bg-primary text-red-500 text-[25px]">
+                        <i class="bx bx-x"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- self edit -->
+        <div id="selfEditModal"
+            class="hidden h-[100vh] w-full bg-[#000000cd] backdrop-blur-[5px] fixed top-0 left-0 z-[999] justify-center items-center">
+
+            <div class="p-[15px] rounded-md bg-white w-[550px] relative">
+                <span id="closeSelfEditModal"
+                    class="bg-red-500 flex justify-center items-center h-[35px] w-[35px] rounded-full text-white cursor-pointer absolute top-[-15px] right-[-20px]">
+                    <i class="bx bx-x text-[20px]"></i>
+                </span>
+
+                <form id="selfEditModalForm" class="grid grid-cols-2 gap-[20px] text-primary">
+                    <label for="selfEditModalFormName">
+                        <p class="text-[12px] opacity-70">
+                            Ism
+                        </p>
+                        <input id="selfEditModalFormName" class="w-full p-[10px] rounded-md border " type="text"
+                            required>
+                    </label>
+
+                    <label for="selfEditModalFormSurname">
+                        <p class="text-[12px] opacity-70">
+                            Familiya
+                        </p>
+                        <input id="selfEditModalFormSurname" class="w-full p-[10px] rounded-md border " type="text"
+                            required>
+                    </label>
+
+                    <label for="selfEditModalFormUsername">
+                        <p class="text-[12px] opacity-70">
+                            Maxfiy so'z
+                        </p>
+                        <input id="selfEditModalFormUsername" class="w-full p-[10px] rounded-md border " type="text"
+                            required>
+                    </label>
+
+                    <label for="selfEditModalFormPassword">
+                        <p class="text-[12px] opacity-70">
+                            Parol
+                        </p>
+                        <input id="selfEditModalFormPassword" class="w-full p-[10px] rounded-md border " type="text"
+                            required>
+                    </label>
+
+                    <button type="submit"
+                        class="col-span-2 w-full bg-primary p-[10px] rounded-md text-white active:scale-[.98] opacity-90 hover:opacity-100">
+                        Saqlash
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+
+    <script type="module" src="../js/reception.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+</body>
+
+</html>

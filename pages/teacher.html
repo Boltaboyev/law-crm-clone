@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law School &middot; Teacher</title>
+    <!-- style -->
+    <link rel="stylesheet" href="../css/output.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="../assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="YG" />
+    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+
+    <!-- boxicon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    <main class="flex justify-between">
+        <!-- sidebar -->
+        <div class="bg-primary flex-1 h-[100vh] sticky top-0 p-[20px] flex flex-col justify-between items-center">
+            <div class="flex justify-center items-center w-full">
+                <img src="../assets/img/header-logo/w-logo.png" alt="">
+            </div>
+
+            <div class="flex flex-col gap-[10px] w-full">
+
+                <button class="sectionBtn w-full btn-primary">Davomat<i class="fa-solid fa-list-check"></i>
+                </button>
+
+                <hr class="opacity-10">
+
+                <button class="sectionBtn w-full btn-primary">Baholash<i class="fa-solid fa-coins"></i></button>
+                <hr class="opacity-10">
+                <button class="sectionBtn w-full btn-primary">Reyting<i class="fa-solid fa-ranking-star"></i></button>
+
+                <hr class="opacity-10">
+
+                <button class="sectionBtn w-full btn-primary">Uyga vazifa<i class="fa-solid fa-thumbtack"></i></button>
+                <hr class="opacity-10">
+                <button id="editProfileBtn" class="w-full btn-primary">Profil<i class="fa-solid fa-gear"></i></button>
+
+            </div>
+
+            <button id="logoutBtn" class="btn-primary w-full !bg-white border border-red-500 !text-red-500">Chiqish <i
+                    class="fa-solid fa-person-running"></i></button>
+        </div>
+        <!-- sidebar end -->
+
+        <div class="bg-white flex-[5] ">
+            <!-- top bar -->
+            <div class="w-full h-[50px] bg-primary sticky top-0 flex justify-end items-center px-[20px] z-[999]">
+                <h1 class="text-white"><span class="text-[12px]">Salom</span> <span id="teacherName"
+                        class="font-bold"></span> <span class="text-[12px]">teacher</span> &#128075;</h1>
+            </div>
+
+            <!-- center append div -->
+            <section class="p-[20px]">
+
+                <!-- Daily attendance ------------------------------------------------------->
+                <div id="dailyAttendance" class="sectionsTeacher hidden flex-col  border border-primary">
+                    <!-- top -->
+                    <div class="w-full bg-primary p-[15px] flex justify-between items-center gap-[20px]">
+                        <p class="text-white">Davomat</p>
+                        <div class="flex justify-center items-center gap-[10px]">
+                            <span class="h-[18px] w-[18px] rounded-full bg-red-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-orange-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-green-500"></span>
+                        </div>
+                    </div>
+
+
+                    <!-- student table -->
+                    <table class="w-full text-sm text-gray-500">
+                        <div
+                            class="sticky text-sm top-[50px] z-[999] font-bold text-green-600 uppercase bg-gray-100 w-full flex justify-between items-center p-[10px_30px]">
+                            <p>F.I.SH</p>
+
+                            <p class="mr-4">Keldi</p>
+                        </div>
+
+                        <tbody id="appendStudentsAttendance" class="text-primary">
+                            <!-- students -->
+                        </tbody>
+                    </table>
+
+                    <div class="flex justify-between items-center w-full">
+                        <button id="restartAttendance"
+                            class="bg-red-400 w-[200px] p-[10px] rounded-md text-white self-end m-[30px] active:scale-[.98]">Restart</button>
+                        <button id="saveAttendanceBtn"
+                            class="bg-primary w-[200px] p-[10px] rounded-md text-white self-end m-[30px] active:scale-[.98]">Saqlash</button>
+                    </div>
+
+
+                </div>
+
+                <!-- Add coins ------------------------------------------------------------>
+                <div id="addCoin" class="sectionsTeacher hidden flex-col  border border-primary">
+                    <div class="w-full bg-primary p-[15px] flex justify-between items-center gap-[20px]">
+                        <p class="text-white">O'quvchilarni baholash</p>
+                        <div class="flex justify-center items-center gap-[10px]">
+                            <span class="h-[18px] w-[18px] rounded-full bg-red-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-orange-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-green-500"></span>
+                        </div>
+                    </div>
+
+                    <!-- student table -->
+                    <table class="w-full text-sm text-gray-500">
+                        <div
+                            class="sticky text-sm top-[50px] z-[999] font-bold text-green-600 uppercase bg-gray-100 w-full flex justify-between items-center p-[10px_30px]">
+                            <p>F.I.SH</p>
+
+                            <p>Baho</p>
+
+                        </div>
+
+                        <tbody id="appendStudentsCoinControl" class="text-primary">
+                            <!-- students -->
+                        </tbody>
+                    </table>
+
+                    <div class="flex justify-between items-center w-full p-[20px_30px]">
+                        <div id="scoreInfoOpen"
+                            class="flex justify-start items-center cursor-pointer gap-[6px] select-none p-[10px]">
+                            <i class="fa-solid fa-info-circle text-green-500 text-[23px]"></i>
+                            <p class="text-primary">baholar haqida</p>
+                        </div>
+
+                        <button id="saveCoinsBtn"
+                            class="bg-primary w-[200px] p-[10px] rounded-md text-white self-end active:scale-[.98]">Saqlash</button>
+                    </div>
+
+                    <!-- score info modal -->
+                    <div id="scoreInfo"
+                        class="hidden h-[100vh] w-full bg-[#000000cd] backdrop-blur-[5px] fixed top-0 left-0 z-[999] justify-center items-center">
+
+                        <div
+                            class="p-[25px] rounded-lg bg-white flex flex-col gap-[10px] text-primary relative w-[400px]">
+                            <span id="closeScoreInfo"
+                                class="bg-red-500 flex justify-center items-center h-[35px] w-[35px] rounded-full text-white cursor-pointer absolute top-[-15px] right-[-20px]">
+                                <i class="bx bx-x text-[20px]"></i>
+                            </span>
+
+                            <h1 class="font-bold text-[18px]">Baholar qiymati</h1>
+                            <div class="flex flex-col gap-[20px] w-full">
+                                <div class="flex justify-between items-center gap-[10px] w-full border-b pb-[10px]">
+                                    <div
+                                        class="h-[25px] w-[25px] flex justify-center items-center text-white bg-gray-500 rounded-md">
+                                        0</div>
+                                    <div class="grid grid-cols-2 gap-[10px]">
+                                        <p class="text-end"> 0 coin <i class="fa-solid fa-coins text-orange-400"></i>
+                                        </p>
+                                        <p class="text-end"> 0 xp <i class="fa-solid fa-gem text-blue-400"></i></p>
+                                    </div>
+                                </div>
+
+                                <div class="flex justify-between items-center gap-[10px] w-full border-b pb-[10px]">
+                                    <div
+                                        class="h-[25px] w-[25px] flex justify-center items-center text-white bg-red-500 rounded-md">
+                                        2</div>
+                                    <div class="grid grid-cols-2 gap-[10px]">
+                                        <p class="text-end"> 10 coin <i class="fa-solid fa-coins text-orange-400"></i>
+                                        </p>
+                                        <p class="text-end"> 2 xp <i class="fa-solid fa-gem text-blue-400"></i></p>
+                                    </div>
+                                </div>
+
+                                <div class="flex justify-between items-center gap-[10px] w-full border-b pb-[10px]">
+                                    <div
+                                        class="h-[25px] w-[25px] flex justify-center items-center text-white bg-orange-500 rounded-md">
+                                        3</div>
+                                    <div class="grid grid-cols-2 gap-[10px]">
+                                        <p class="text-end"> 15 coin <i class="fa-solid fa-coins text-orange-400"></i>
+                                        </p>
+                                        <p class="text-end"> 3 xp <i class="fa-solid fa-gem text-blue-400"></i></p>
+                                    </div>
+                                </div>
+
+                                <div class="flex justify-between items-center gap-[10px] w-full border-b pb-[10px]">
+                                    <div
+                                        class="h-[25px] w-[25px] flex justify-center items-center text-white bg-blue-500 rounded-md">
+                                        4</div>
+                                    <div class="grid grid-cols-2 gap-[10px]">
+                                        <p class="text-end"> 20 coin <i class="fa-solid fa-coins text-orange-400"></i>
+                                        </p>
+                                        <p class="text-end"> 5 xp <i class="fa-solid fa-gem text-blue-400"></i></p>
+                                    </div>
+                                </div>
+
+                                <div class="flex justify-between items-center gap-[10px] w-full border-b pb-[10px]">
+                                    <div
+                                        class="h-[25px] w-[25px] flex justify-center items-center text-white bg-green-500 rounded-md">
+                                        5</div>
+                                    <div class="grid grid-cols-2 gap-[10px]">
+                                        <p class="text-end"> 30 coin <i class="fa-solid fa-coins text-orange-400"></i>
+                                        </p>
+                                        <p class="text-end"> 8 xp <i class="fa-solid fa-gem text-blue-400"></i></p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Students rank ------------------------------------------------------------>
+                <div id="studentRank" class="sectionsTeacher hidden flex-col border border-primary">
+
+                    <div class="w-full bg-primary p-[15px] flex justify-between items-center gap-[20px]">
+                        <p class="text-white">O'quvchilar reytinggi</p>
+                        <div class="flex justify-center items-center gap-[10px]">
+                            <span class="h-[18px] w-[18px] rounded-full bg-red-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-orange-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-green-500"></span>
+                        </div>
+                    </div>
+
+                    <div class="w-full text-sm text-gray-500">
+                        <div
+                            class="sticky top-[50px] z-[999] font-bold text-green-600 uppercase bg-gray-100 w-full grid grid-cols-3 p-[10px_30px]">
+                            <p>F.I.SH</p>
+
+                            <p class="flex justify-center items-center">XP</p>
+
+                            <p class="flex justify-end items-center">Rank</p>
+                        </div>
+
+                        <div id="appendStudentsRank" class="text-primary">
+                            <!-- students -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Homework -------------------------------------------------------->
+                <div id="addHomeTask" class="sectionsTeacher hidden flex-col border border-primary overflow-hidden">
+                    <!-- top -->
+                    <div class="w-full bg-primary p-[15px] flex justify-between items-center gap-[20px]">
+                        <p class="text-white">Uyga vazifa</p>
+                        <div class="flex justify-center items-center gap-[10px]">
+                            <span class="h-[18px] w-[18px] rounded-full bg-red-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-orange-500"></span>
+                            <span class="h-[18px] w-[18px] rounded-full bg-green-500"></span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-[40px] text-primary p-[30px]">
+                        <div class="flex flex-col gap-[5px]">
+                            <p class="text-[14px]">Yangi vazifa qo'shish</p>
+                            <form class="flex flex-col gap-[10px]" id="homeTaskForm">
+                                <textarea id="homeTaskFormTextArea" class="border outline-none p-[10px]"
+                                    placeholder="matn yozing" rows="5"></textarea>
+                                <button class="bg-primary text-white p-[10px] rounded-md active:scale-[.98]">Uyga
+                                    vazifani yuklash</button>
+                            </form>
+                        </div>
+
+                        <div class="flex flex-col gap-[5px]">
+                            <p class="text-[14px]">Oxirgi vazifa :</p>
+                            <p class="p-[6px] border opacity-60" id="lastHomeTask"> </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- edit teacher info modal -->
+                <div id="editTeacherModal"
+                    class="hidden h-[100vh] w-full bg-[#000000cd] backdrop-blur-[5px] fixed top-0 left-0 z-[999] justify-center items-center">
+
+                    <div class="p-[15px] rounded-md bg-white w-[550px] relative">
+                        <span id="closeEditTeacherModal"
+                            class="bg-red-500 flex justify-center items-center h-[35px] w-[35px] rounded-full text-white cursor-pointer absolute top-[-15px] right-[-20px]">
+                            <i class="bx bx-x text-[20px]"></i>
+                        </span>
+
+                        <form id="editTeacherModalForm" class="flex flex-col gap-[20px] text-primary">
+
+                            <div class="relative self-center">
+                                <img id="currentAvatarImg" src="" alt=""
+                                    class="!h-[100px] !w-[100px] rounded-full object-cover">
+                                <label for="changeAvatar"
+                                    class="h-[30px] w-[30px] absolute bottom-0 right-0 rounded-full border-2 border-white cursor-pointer  bg-primary text-white flex justify-center items-center">
+                                    <i class="bx bx-camera"></i>
+                                </label>
+                                <input type="file" id="changeAvatar" class="hidden">
+                            </div>
+
+                            <div class="flex justify-between items-center p-[5px_0] border-b">
+                                <p class="text-[12px] opacity-70">
+                                    Ism
+                                </p>
+
+                                <p id="name"></p>
+                            </div>
+
+
+                            <div class="flex justify-between items-center p-[5px_0] border-b">
+                                <p class="text-[12px] opacity-70">
+                                    Familiya
+                                </p>
+                                <p id="surname"></p>
+                            </div>
+
+                            <div class="flex justify-between items-center p-[5px_0] border-b">
+                                <p class="text-[12px] opacity-70">
+                                    Telefon raqam
+                                </p>
+                                <p id="phoneNum"></p>
+                            </div>
+
+
+                            <p class="font-[400] text-[13px] bg-red-200 p-[10px] rounded-md text-[#662414]">
+                                Ism-familiya
+                                va telefon raqamni o’zgartirish uchun markaz administratsiyasiga murojaat
+                                qilishingiz
+                                mumkin.</p>
+
+
+                            <button id="saveEditBtn" type="submit"
+                                class="col-span-2 w-full bg-primary p-[10px] rounded-md text-white active:scale-[.98] opacity-90 hover:opacity-100">
+                                Saqlash
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- toast -->
+                <p id="toast"
+                    class="fixed bottom-[-100%] z-[999999999] right-[20px] bg-green-500 text-white shadow-md p-[20px] rounded-xl text-center">
+                </p>
+
+            </section>
+
+        </div>
+
+        <!-- logout confirmation modal -->
+        <div id="logoutModal"
+            class="hidden h-[100vh] w-full bg-[#000000a5] backdrop-blur-[4px] fixed top-0 left-0 z-[999] justify-center items-center">
+            <div class="p-[20px] rounded-lg bg-white shadow-md flex flex-col gap-[20px]">
+                <p>Rostan ham hisobdan chiqmoqchimisiz !</p>
+
+                <div class="grid grid-cols-2 gap-[20px] w-full">
+                    <button id="yesLogout" class="p-[5px] rounded-md bg-primary text-green-500 text-[25px]">
+                        <i class="bx bx-check"></i>
+                    </button>
+
+                    <button id="noLogout" class="p-[5px] rounded-md bg-primary text-red-500 text-[25px]">
+                        <i class="bx bx-x"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+    <script type="module" src="../js/teacher.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+</body>
+
+</html>

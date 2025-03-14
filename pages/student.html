@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law School &middot; Profilim</title>
+    <!-- style -->
+    <link rel="stylesheet" href="../css/output.css">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="../assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="YG" />
+    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+
+    <!-- boxicon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body class="bg-slate-100">
+
+    <!-- vaqtinchalik mobile versiya -->
+    <main class="hidden max-[600px]:block">
+        <!-- sidebar -->
+        <div id="sidebar"
+            class="fixed top-0 left-[-100%] bg-primary p-[70px_20px] h-[100vh] w-full z-[9999999] flex flex-col gap-[50px]">
+            <!-- close sidebar -->
+            <i class="bx bx-x text-white text-[30px] absolute right-[5px] top-[5px] opacity-50 p-[10px]"></i>
+
+            <!-- sidebar info -->
+            <div class="flex justify-start items-center gap-[16px]">
+                <img id="sidebarMyAvatar" src="../assets/img/avatar.jpg" alt=""
+                    class="h-[60px] w-[60px] rounded-full object-cover">
+                <div>
+                    <p class="text-white flex justify-center items-center gap-[10px]">Salom <span
+                            class="font-bold text-[20px] sidebarMyName">Name</span> <span
+                            class="text-[20px]">&#128075</span></p>
+                    <p class="text-[14px] text-white opacity-50">Lawyer</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-[10px] text-white h-full justify-between">
+                <div class="flex justify-between items-center p-[10px] border-b border-[#ffffff1e] ">
+                    <p class="opacity-70 text-[14px]">Ism</p>
+                    <h3 class="sidebarMyName">Name</h3>
+                </div>
+
+                <div class="flex justify-between items-center p-[10px] border-b border-[#ffffff1e] ">
+                    <p class="opacity-70 text-[14px]">Familiya</p>
+                    <h3 id="sidebarMySurname">Boltaboyev</h3>
+                </div>
+
+                <div class="flex justify-between items-center p-[10px] border-b border-[#ffffff1e] ">
+                    <p class="opacity-70 text-[14px]">Raqam</p>
+                    <h3 id="sidebarMyNumber">+998(00)-000-00-00</h3>
+                </div>
+
+                <p class="font-[400] text-[13px] bg-red-200 p-[10px] rounded-md text-[#662414]">
+                    Ism-familiya
+                    va telefon raqamni o’zgartirish uchun markaz administratsiyasiga murojaat
+                    qilishingiz
+                    mumkin.</p>
+            </div>
+        </div>
+
+        <!-- bottom navigation bar -->
+        <div
+            class="w-full bg-primary text-white p-[10px_15px] h-[85px] rounded-[25px_25px_0_0] fixed bottom-0 left-0 z-[999]">
+            <div class="ownContainer flex justify-around items-center h-full">
+                <!-- main -->
+                <button id="mainPageButton"
+                    class="pageOpenBtn text-yellow-400 flex flex-col gap-[5px] justify-center h-full items-center">
+                    <i class="fa-solid fa-house text-[24px] max-[360px]:text-[20px]"></i>
+                    <p class="text-[12px] opacity-70 font-[300]">Asosiy</p>
+                </button>
+
+                <!-- rank -->
+                <button id="rankPageButton"
+                    class="pageOpenBtn flex flex-col gap-[5px] justify-center h-full items-center">
+                    <i class="fa-solid fa-ranking-star text-[24px] max-[360px]:text-[20px]"></i>
+                    <p class="text-[12px] opacity-70 font-[300]">Rank</p>
+                </button>
+
+                <!-- store -->
+                <a href="../pages/store.html" class="flex flex-col gap-[5px] justify-center h-full items-center">
+                    <i class="fa-solid fa-cart-shopping text-[24px] max-[360px]:text-[20px]"></i>
+                    <p class="text-[12px] opacity-70 font-[300]">Shop</p>
+                </a>
+
+                <!-- setting -->
+                <button id="profilePageButton"
+                    class="pageOpenBtn flex flex-col gap-[5px] justify-center h-full items-center">
+                    <i class="fa-solid fa-gear text-[24px] max-[360px]:text-[20px]"></i>
+                    <p class="text-[12px] opacity-70 font-[300]">Profil</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- main section -->
+        <section class="main">
+            <div class="px-[15px] flex flex-col gap-[20px]">
+                <div class="w-full flex justify-between items-center gap-[10px] py-[20px]">
+                    <div class="flex justify-start items-center gap-[15px]">
+                        <img id="myAvatar" src="../assets/img/avatar.jpg" alt=""
+                            class="h-[60px] w-[60px] object-cover rounded-full border border-primary">
+                        <div class="flex flex-col text-primary">
+                            <h1 id="myName" class="font-bold">Name Surname</h1>
+                            <small class="font-[500]">o'quvchi</small>
+                        </div>
+                    </div>
+
+                    <button id="openSidebarpage">
+                        <i class="bx bx-menu text-primary text-[35px]"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- main page -->
+            <section class="pages p-[15px] flex flex-col mb-[90px]">
+
+                <div class="flex flex-col gap-[3px] text-primary pt-[20px]">
+                    <h1 class=" font-semibold opacity-90">Natijalarim</h1>
+                    <div class="p-[15px_10px] flex flex-col gap-[15px] rounded-lg relative border border-slate-300 bg-green-600 text-white bg-cover bg-bottom"
+                        style="background-image: url(../assets/img/bg/comment-bg.png);">
+                        <div class="flex justify-between items-center">
+                            <p>Guruhdagi o'rnim : </p>
+                            <h3 id="myRankOnGroup"
+                                class="font-bold border flex justify-center items-center h-[35px] w-[35px] rounded-full bg-yellow-500">
+                                0</h3>
+                        </div>
+
+                        <i
+                            class="fa-solid fa-crown absolute text-yellow-500 text-[25px] right-[-10px] top-[-14px] rotate-[30deg]"></i>
+                    </div>
+                </div>
+
+                <div class="pt-[20px] grid grid-cols-2 gap-[25px] text-primary">
+                    <div
+                        class="flex flex-col h-[150px] p-[10px] rounded-xl border border-yellow-500  justify-between items-center relative overflow-hidden bg-[#ffff004f]">
+                        <p>Coin <i class="fa-solid fa-coins text-yellow-500"></i></p>
+
+                        <p id="myCoins" class="text-xl font-mono text-yellow-700">0</p>
+
+                        <img class="absolute h-[100px] w-[100px] object-contain bottom-[-20px] right-[-40px]"
+                            src="../assets/img/coin.webp" alt="">
+                    </div>
+
+
+                    <div
+                        class="flex flex-col h-[150px] p-[10px] rounded-xl border border-blue-500 justify-between items-center relative overflow-hidden bg-[#0000ff1f]">
+                        <p>XP <i class="fa-solid fa-gem text-blue-500"></i></p>
+
+                        <p id="myXp" class="text-xl font-mono text-blue-700">0</p>
+
+                        <img class="absolute h-[100px] w-[100px] object-contain bottom-[-20px] right-[-40px]"
+                            src="../assets/img/diamond.png" alt="">
+
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-[3px] pt-[20px] text-primary">
+                    <h1 class=" font-semibold opacity-90">Uyga vazifa</h1>
+                    <div class="p-[10px] rounded-lg border border-slate-300 bg-primary text-white bg-cover bg-bottom"
+                        style="background-image: url(../assets/img/bg/comment-bg.png);">
+                        <p id="homeworkTextContent" class="text-[15px">
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-[3px] text-primary pt-[20px]">
+                    <h1 class=" font-semibold opacity-90">O'qituvchilarim</h1>
+                    <div id="appendMyTeachersBox"
+                        class="p-[15px_10px] flex flex-col gap-[10px] rounded-lg border border-slate-300 bg-blue-500 text-white bg-cover bg-bottom"
+                        style="background-image: url(../assets/img/bg/comment-bg.png);">
+
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-[3px] text-primary pt-[20px]">
+                    <h1 class=" font-semibold opacity-90">Tolov holati</h1>
+                    <div class="p-[15px_10px] flex justify-between items-center rounded-lg border border-slate-300 bg-orange-500 text-white bg-cover bg-bottom"
+                        style="background-image: url(../assets/img/bg/comment-bg.png);">
+                        <h1 id="paymentStatus">To'lanmagan</h1>
+
+                        <h1 class="h-[40px] w-[40px] bg-white rounded-md flex justify-center items-center"
+                            id="paymentIcon">❌</h1>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- rank page -->
+            <section class="pages p-[15px] flex flex-col gap-[20px] mb-[90px]">
+
+                <div class="py-[20px] z-[777] bg-slate-100  sticky top-0 flex justify-between items-center">
+                    <h1 class="text-[20px] font-[600] ">Umumiy reyting</h1>
+                    <div class="flex justify-end items-center gap-[5px]">
+                        <div class="h-[10px] w-[10px] rounded-full bg-orange-500"></div>
+                        <div class="h-[10px] w-[10px] rounded-full bg-green-500"></div>
+                        <div class="h-[10px] w-[10px] rounded-full bg-red-500"></div>
+                    </div>
+                </div>
+
+                <div class="rankBox flex flex-col gap-[8px]">
+                    <!-- table -->
+
+                </div>
+
+            </section>
+
+            <!-- profile page -->
+            <section class="pages p-[15px] flex flex-col mb-[90px]">
+
+                <p class="text-gray-500 mb-[10px] text-center w-[80%] m-auto">Talab : 500x500 o`lcham, JPEG, JPG, PNG
+                    format, maksimum 2MB</p>
+                <div class="grid grid-cols-2 gap-[20px]">
+                    <div class="flex flex-col gap-[3px] justify-center items-center">
+                        <img src="../assets/img/example_avatar.jpeg" alt=""
+                            class="border border-primary h-[100px] object-cover">
+                        <p>Namuna</p>
+                    </div>
+
+                    <div class="flex justify-center relative">
+                        <img id="currentAvatar" src="../assets/img/avatar.jpg" alt=""
+                            class="border-2 border-primary h-[100px] w-[100px] rounded-full object-cover">
+
+                        <div id="openEditAvatarModal"
+                            class="absolute bottom-[25px] right-[30px] h-[40px] w-[40px] bg-primary border-2 border-white flex justify-center items-center rounded-full text-white">
+                            <i class="bx bx-camera "></i>
+                        </div>
+                    </div>
+
+                    <!--  edit profile modal -->
+                    <!-- <div id="editAvatarModal"
+                        class="hidden h-[100vh] w-full bg-[#000000a5] backdrop-blur-[4px] fixed top-0 left-0 z-[999] justify-center items-center">
+                        <div class="p-[20px] rounded-lg bg-white shadow-md flex flex-col gap-[20px] w-[85%] relative">
+                            <span id="closeEditAvatarModal"
+                                class="bg-red-500 flex justify-center items-center h-[35px] w-[35px] rounded-full text-white cursor-pointer absolute top-[-15px] right-[-20px]">
+                                <i class="bx bx-x text-[20px]"></i>
+                            </span>
+                            <label for="avatarChangeBtn"
+                                class="p-[10px] rounded-md text-primary w-full flex flex-col justify-center items-center border border-dotted border-gray-300 bg-blue-50 ">
+                                <i class='bx bx-cloud-upload text-[24px]'></i>
+                                <p>fayl tanlang</p>
+                            </label>
+                            <input type="file" class="hidden" id="avatarChangeBtn">
+
+                            <button id="saveEditAvatarModal"
+                                class="bg-primary p-[10px] rounded-md active:scale-[.98] text-green-500">Saqlash</button>
+                        </div>
+                    </div> -->
+
+                    <div id="editAvatarModal"
+                        class="hidden h-[100vh] w-full bg-[#000000a5] backdrop-blur-[4px] fixed top-0 left-0 z-[999] justify-center items-center">
+                        <div class="p-[20px] rounded-lg bg-white shadow-md flex flex-col gap-[20px] w-[85%] relative">
+                            <span id="closeEditAvatarModal"
+                                class="bg-red-500 flex justify-center items-center h-[35px] w-[35px] rounded-full text-white cursor-pointer absolute top-[-15px] right-[-20px]">
+                                <i class="bx bx-x text-[20px]"></i>
+                            </span>
+
+                            <p>Afsus ayni damda profil rasmini o'zgartira olmaysiz !</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="pt-[20px] flex flex-col gap-[10px]">
+                    <div class="flex justify-between items-center border px-[5px] py-[3px]">
+                        <p class="text-[14px] opacity-50">Guruhga qo'shilgan sana :</p>
+                        <p id="joinDate">20/03/2025</p>
+                    </div>
+
+                    <div class="flex justify-between items-center border px-[5px] py-[3px]">
+                        <p class="text-[14px] opacity-50">Telefon raqam :</p>
+                        <p id="myPhoneNum">+998(00)-000-00-00</p>
+                    </div>
+
+                    <div class="flex justify-between items-center border px-[5px] py-[3px]">
+                        <p class="text-[14px] opacity-50">Qo'shimcha raqam :</p>
+                        <p id="parentsPhoneNum">+998(00)-000-00-00</p>
+                    </div>
+
+                    <button id="logout" class="mt-[20px] p-[10px] bg-red-500 text-white rounded-md active:scale-[.98]">
+                        Chiqish
+                    </button>
+                </div>
+
+            </section>
+
+
+        </section>
+
+        <!-- logout confirmation modal -->
+        <div id="logoutModal"
+            class="hidden h-[100vh] w-full bg-[#000000a5] backdrop-blur-[4px] fixed top-0 left-0 z-[999] justify-center items-center">
+            <div class="p-[20px] rounded-lg bg-white shadow-md flex flex-col gap-[20px]">
+                <p>Rostan ham hisobdan chiqmoqchimisiz !</p>
+
+                <div class="grid grid-cols-2 gap-[20px] w-full">
+                    <button id="yesLogout" class="p-[5px] rounded-md bg-primary text-green-500 text-[25px]">
+                        <i class="bx bx-check"></i>
+                    </button>
+
+                    <button id="noLogout" class="p-[5px] rounded-md bg-primary text-red-500 text-[25px]">
+                        <i class="bx bx-x"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- toast -->
+        <p id="toast"
+            class="fixed bottom-[-100%] z-[999999999] right-[20px] bg-green-500 text-white shadow-md p-[20px] rounded-xl text-center">
+        </p>
+
+    </main>
+
+
+
+    <script type="module" src="../js/student.js"></script>
+</body>
+
+</html>

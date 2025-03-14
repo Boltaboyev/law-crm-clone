@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Young Genius &middot; Kirish</title>
+    <!-- style -->
+    <link rel="stylesheet" href="./css/output.css">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="YG" />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+
+    <!-- boxicon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- notify -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+
+</head>
+
+<body>
+
+    <section id="sectionContainer"
+        class="h-[100vh] w-full bg-primary flex flex-col justify-center items-center p-[10px]">
+
+        <img src="./assets/img/header-logo/w-logo.png" alt="" class="translate-y-[-20px]">
+
+        <div
+            class="loginFormDiv flex flex-col gap-[20px] bg-white w-[500px] rounded-xl p-[20px] shadow-sm max-[550px]:w-[400px] max-[420px]:w-[350px] max-[365px]:w-full">
+            <form id="loginForm" class="w-full flex flex-col gap-[30px] text-primary">
+
+                <input id="loginUsername" type="text" placeholder="Maxfiy so'z"
+                    class="border border-[#0d0d2d7e] p-[10px] rounded-md">
+
+                <div
+                    class="loginPasswordDiv w-full flex justify-between items-center border border-[#0d0d2d7e] rounded-md overflow-hidden">
+                    <input id="loginPassword" type="password" placeholder="Parol"
+                        class="passwordInput w-[90%] p-[10px]">
+                    <i
+                        class="showPassEye fa-regular fa-eye text-primary cursor-pointer p-[10px] w-[10%] !flex !justify-center !items-center !text-center"></i>
+                </div>
+
+                <button id="pulseAnim" type="submit" class="w-full bg-primary p-[10px] rounded-md text-white">
+                    Kirish
+                </button>
+            </form>
+
+
+            <p class="text-[14px] text-center">Ma'lumotlaringizni unutgan bo'lsangiz receptionga murojaat qiling !</p>
+
+        </div>
+    </section>
+
+    <script type="module" src="./js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+</body>
+
+</html>

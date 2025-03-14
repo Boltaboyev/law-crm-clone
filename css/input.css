@@ -1,0 +1,211 @@
+/* font Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-color: #1f2937;
+    --text-color: #1f1f1f;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+}
+
+::-moz-scrollbar {
+    width: 8px;
+}
+
+::-moz-scrollbar-thumb {
+    background: var(--primary-color);
+}
+
+::-ms-scrollbar {
+    width: 8px;
+}
+
+::-ms-scrollbar-thumb {
+    background: var(--primary-color);
+}
+
+.loader {
+    opacity: 1;
+    transition: .5s;
+}
+
+.loader img {
+    animation: loader 8s infinite linear;
+}
+
+.loader_active {
+    opacity: 0;
+}
+
+@keyframes loader {
+    from {
+        transform: rotateY(5turn);
+    }
+
+    to {
+        transform: rotateY(0turn);
+    }
+}
+
+/* global */
+a {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    user-select: none;
+}
+
+button:active {
+    transform: scale(.98);
+}
+
+input {
+    outline: none;
+}
+
+/* container */
+.ownContainer {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+@media (min-width: 1400px) {
+    .ownContainer {
+        max-width: 1350px;
+    }
+}
+
+
+/* buttons */
+.btn-primary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #dbdede93;
+    padding: 5px 15px;
+    border-radius: 6px;
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: .2s ease background;
+}
+
+.btn-primary:hover {
+    background: #d9d8d8;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+
+/* active class */
+.adminActiveBtn,
+.teacherActiveBtn {
+    background: #d9d8d8;
+}
+
+/* login btn pulse animation */
+#pulseAnim {
+    animation: pulse 2s infinite cubic-bezier(0.25, 0, 0, 1);
+    box-shadow: 0 0 0 0 #1f2937;
+}
+
+@keyframes pulse {
+    to {
+        box-shadow: 0 0 0 10px #ffffff00;
+    }
+}
+
+.sectionTitle::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background: #1f2937;
+}
+
+
+.counter {
+    transition: all 0.3s ease-in-out;
+}
+
+
+.swiper-pagination-bullet {
+    background-color: #1f2937 !important;
+    padding: 7px;
+}
+
+
+#sideBar {
+    left: -100%;
+    transition: left 0.4s ease;
+}
+
+.showSidebar {
+    left: 0 !important;
+}
+
+
+.attendanceTableRow {
+    @apply bg-white border-b hover:bg-gray-50;
+}
+
+
+.editTeacherBox,
+.editStudentBox {
+    @apply flex flex-col justify-between p-[15px] border border-gray-200 rounded-md text-primary gap-[10px];
+}
+
+
+.paymentControlUser {
+    @apply grid grid-cols-3 px-4 py-5 text-sm text-gray-700 border-b border-gray-200 gap-x-16;
+}
+
+
+/* activeBall klassi uchun */
+.activeBall {
+    opacity: 1 !important;
+    height: 30px !important;
+    width: 30px !important;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.rankTableRow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @apply border-b p-[10px_30px]
+}
+

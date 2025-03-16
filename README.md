@@ -1,5 +1,16 @@
-Reception --- login: reception / password: reception123
+# Login & Password
 
-Teacher --- login: teacher / password: teacher123
+Use the following login credentials to access different user roles.
 
-Student --- login: john / password: john123
+## Reception
+- login: reception
+- password: reception123
+
+## Teacher
+- login: teacher
+- password: teacher123
+
+## Student
+- login: john
+- password: john123
+

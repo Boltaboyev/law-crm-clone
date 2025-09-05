@@ -2,6 +2,25 @@
     {
         "name": "Otabek",
         "surname": "Boltaboyev",
+        "phoneNum": "+998(93)-338-07-88",
+        "role": "student",
+        "username": "otabek",
+        "password": "1111",
+        "avatar": "https://res.cloudinary.com/dxpmc0mj6/image/upload/v1745083760/hss7bu7jod1xesaus99f.jpg",
+        "coin": 7599,
+        "parentsPhoneNum": "+998(93)-358-03-74",
+        "payment": false,
+        "attend": true,
+        "joinDate": "08/02/2025",
+        "lastPayment": "lastPayment 4",
+        "xp": 280,
+        "grades": [],
+        "shopHistory": [],
+        "id": "64543"
+    },
+    {
+        "name": "Otabek",
+        "surname": "Boltaboyev",
         "role": "mainadmin",
         "username": "otabek",
         "password": "123",
@@ -63,6 +82,8 @@
         "joinDate": "08/02/2025",
         "lastPayment": "lastPayment 4",
         "xp": 45,
+        "grades": [],
+        "shopHistory": [],
         "id": "6"
     },
     {
@@ -80,6 +101,8 @@
         "joinDate": "08/02/2025",
         "lastPayment": "lastPayment 5",
         "xp": 30,
+        "grades": [],
+        "shopHistory": [],
         "id": "7"
     },
     {
@@ -97,6 +120,8 @@
         "joinDate": "08/02/2025",
         "lastPayment": "lastPayment 6",
         "xp": 50,
+        "grades": [],
+        "shopHistory": [],
         "id": "8"
     },
     {
@@ -114,6 +139,8 @@
         "joinDate": "08/02/2025",
         "lastPayment": "lastPayment 7",
         "xp": 25,
+        "grades": [],
+        "shopHistory": [],
         "id": "9"
     },
     {
@@ -131,6 +158,8 @@
         "joinDate": "08/02/2025",
         "lastPayment": "lastPayment 9",
         "xp": 40,
+        "grades": [],
+        "shopHistory": [],
         "id": "11"
     },
     {
@@ -148,6 +177,8 @@
         "joinDate": "08/02/2025",
         "lastPayment": "lastPayment 10",
         "xp": 50,
+        "grades": [],
+        "shopHistory": [],
         "id": "12"
     },
     {
@@ -165,6 +196,8 @@
         "joinDate": "08/02/2025",
         "lastPayment": "lastPayment 11",
         "xp": 20,
+        "grades": [],
+        "shopHistory": [],
         "id": "13"
     },
     {
@@ -182,6 +215,8 @@
         "joinDate": "08/02/2025",
         "lastPayment": "lastPayment 12",
         "xp": 40,
+        "grades": [],
+        "shopHistory": [],
         "id": "14"
     },
     {
@@ -199,6 +234,8 @@
         "joinDate": "08/02/2025",
         "lastPayment": "lastPayment 13",
         "xp": 40,
+        "grades": [],
+        "shopHistory": [],
         "id": "15"
     },
     {
@@ -216,6 +253,8 @@
         "joinDate": "08/02/2025",
         "lastPayment": "lastPayment 14",
         "xp": 35,
+        "grades": [],
+        "shopHistory": [],
         "id": "16"
     },
     {
@@ -233,6 +272,8 @@
         "joinDate": "08/02/2025",
         "lastPayment": "lastPayment 16",
         "xp": 40,
+        "grades": [],
+        "shopHistory": [],
         "id": "18"
     },
     {
@@ -250,6 +291,8 @@
         "joinDate": "08/02/2025",
         "lastPayment": "lastPayment 17",
         "xp": 25,
+        "grades": [],
+        "shopHistory": [],
         "id": "19"
     },
     {
@@ -267,6 +310,8 @@
         "joinDate": "08/02/2025",
         "lastPayment": "lastPayment 20",
         "xp": 25,
+        "grades": [],
+        "shopHistory": [],
         "id": "21"
     },
     {
@@ -284,6 +329,8 @@
         "joinDate": "18/02/2025",
         "lastPayment": "lastPayment 22",
         "xp": 30,
+        "grades": [],
+        "shopHistory": [],
         "id": "22"
     },
     {
@@ -301,6 +348,8 @@
         "joinDate": "18/02/2025",
         "lastPayment": "lastPayment 23",
         "xp": 5,
+        "grades": [],
+        "shopHistory": [],
         "id": "23"
     },
     {
@@ -318,6 +367,8 @@
         "joinDate": "18/02/2025",
         "lastPayment": "lastPayment 24",
         "xp": 40,
+        "grades": [],
+        "shopHistory": [],
         "id": "24"
     },
     {
@@ -335,6 +386,8 @@
         "joinDate": "18/02/2025",
         "lastPayment": "lastPayment 25",
         "xp": 10,
+        "grades": [],
+        "shopHistory": [],
         "id": "25"
     },
     {
@@ -352,6 +405,8 @@
         "joinDate": "18/02/2025",
         "lastPayment": "lastPayment 26",
         "xp": 40,
+        "grades": [],
+        "shopHistory": [],
         "id": "26"
     },
     {
@@ -369,6 +424,8 @@
         "joinDate": "18/02/2025",
         "lastPayment": "lastPayment 27",
         "xp": 35,
+        "grades": [],
+        "shopHistory": [],
         "id": "27"
     },
     {
@@ -386,6 +443,8 @@
         "joinDate": "18/02/2025",
         "lastPayment": "lastPayment 28",
         "xp": 30,
+        "grades": [],
+        "shopHistory": [],
         "id": "28"
     }
 ]

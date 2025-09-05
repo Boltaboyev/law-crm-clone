@@ -342,7 +342,7 @@ fetchApi({url: "users"})
                             )
                             .closest("tr")
                         studentRow.style.borderColor = "red"
-                        studentRow.classList.add("!bg-red-100") // Attendance row uchun qizil border qo'yish
+                        studentRow.classList.add("!bg-red-100")
                         return null // Ball tanlanmagan bo'lsa, keyingi studentga o'tish
                     }
 
@@ -350,13 +350,21 @@ fetchApi({url: "users"})
                         selectedBallElement.innerText
                     )
 
-                    // Ballga qarab coin va xp larni yangilash
-                    const coinsToAdd = ballValues[selectedBallValue] || 0
-                    const xpToAdd = xpValues[selectedBallValue] || 0
-
+                    // Student ma'lumotlarini olish
                     const studentData = await fetchApi({
                         url: `users/${student.id}`,
                     })
+                    
+                    // Grades arrayini yangilash
+                    let grades = studentData.grades || []
+                    if (grades.length >= 5) {
+                        grades.shift() // Eng eski ballni olib tashlash
+                    }
+                    grades.push(selectedBallValue) // Yangi ballni qo'shish
+
+                    // Ballga qarab coin va xp larni yangilash
+                    const coinsToAdd = ballValues[selectedBallValue] || 0
+                    const xpToAdd = xpValues[selectedBallValue] || 0
                     const currentCoins = studentData.coin || 0
                     const currentXp = studentData.xp || 0
 
@@ -365,12 +373,13 @@ fetchApi({url: "users"})
                         id: student.id,
                         coin: currentCoins + coinsToAdd,
                         xp: currentXp + xpToAdd,
+                        grades: grades // Yangilangan grades arrayni qo'shish
                     }
                 })
             )
 
             if (!allBallsAssigned) {
-                notyf.error("Hammani baholang !")
+                notyf.error("Hammani baholang!")
                 return
             }
 
